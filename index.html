@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f2e7">
+  <meta name="description" content="Confirmación de asistencia a la boda de Rebeca e Israel.">
+  <title>Confirma tu asistencia | Rebeca & Israel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="splash" class="splash" aria-hidden="true">
+    <div class="splash__content">
+      <span class="splash__small">Nuestra boda</span>
+      <strong>Rebeca</strong>
+      <span class="splash__amp">&</span>
+      <strong>Israel</strong>
+    </div>
+  </div>
+
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Rebeca & Israel</p>
+      <h1>Confirma tu asistencia</h1>
+      <div class="ornament" aria-hidden="true">✦</div>
+      <p class="intro">
+        Nos llena de alegría compartir este momento contigo.
+        Ingresa el código incluido en tu invitación.
+      </p>
+    </header>
+
+    <section id="lookupCard" class="card">
+      <label for="codeInput">Código de invitación</label>
+      <div class="code-row">
+        <input id="codeInput" class="code-input" type="text" maxlength="7"
+          placeholder="BODA-01" autocomplete="off" autocapitalize="characters"
+          spellcheck="false">
+        <button id="searchButton" type="button">Consultar invitación</button>
+      </div>
+      <p class="helper">El código aparece en la invitación y tiene el formato BODA-01.</p>
+      <div id="lookupMessage" class="message hidden" role="alert"></div>
+    </section>
+
+    <section id="formCard" class="card hidden">
+      <div class="invitation-heading">
+        <p class="eyebrow">Invitación para</p>
+        <h2 id="displayName"></h2>
+        <p id="seatMessage" class="seat-message"></p>
+      </div>
+
+      <fieldset class="fieldset">
+        <legend>¿Podrán acompañarnos?</legend>
+        <div class="attendance-options">
+          <label class="choice">
+            <input type="radio" name="attending" value="yes">
+            <span class="choice__title">Sí, con mucho gusto</span>
+            <span class="choice__detail">Será un honor acompañarlos</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="attending" value="no">
+            <span class="choice__title">No podremos asistir</span>
+            <span class="choice__detail">Gracias por considerarnos</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <section id="attendeeSection" class="hidden">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Sus lugares</p>
+            <h3>Personas que asistirán</h3>
+          </div>
+          <label class="count-field" for="attendeeCount">
+            Número de asistentes
+            <select id="attendeeCount"></select>
+          </label>
+        </div>
+
+        <p class="names-note">
+          Escriban el nombre completo de cada asistente tal como desean que aparezca
+          en nuestra lista.
+        </p>
+
+        <div id="attendeeFields" class="attendee-fields"></div>
+      </section>
+
+      <section class="contact-section">
+        <h3>Datos de contacto</h3>
+        <div class="form-grid">
+          <div>
+            <label for="phone">Teléfono</label>
+            <input id="phone" type="tel" maxlength="30" placeholder="Opcional">
+          </div>
+          <div>
+            <label for="email">Correo electrónico</label>
+            <input id="email" type="email" maxlength="120" placeholder="Opcional">
+          </div>
+          <div class="full">
+            <label for="comments">Mensaje o consideración especial</label>
+            <textarea id="comments" maxlength="700"
+              placeholder="Restricciones alimentarias, alergias o un mensaje para los novios."></textarea>
+          </div>
+        </div>
+      </section>
+
+      <div id="formMessage" class="message hidden" role="alert"></div>
+
+      <div class="actions">
+        <button id="backButton" class="button-secondary" type="button">Cambiar código</button>
+        <button id="saveButton" type="button">Guardar confirmación</button>
+      </div>
+    </section>
+
+    <section id="successCard" class="card hidden">
+      <div class="success">
+        <div class="success-mark" aria-hidden="true">✓</div>
+        <p class="eyebrow">Respuesta recibida</p>
+        <h2>Gracias por confirmar</h2>
+        <p id="successMessage"></p>
+        <button id="restartButton" type="button">Consultar otro código</button>
+      </div>
+    </section>
+
+    <footer>
+      <span>Con cariño</span>
+      <strong>Rebeca & Israel</strong>
+    </footer>
+  </main>
+
+  <script>
+    window.RSVP_CONFIG = {
+      apiUrl: "https://script.google.com/macros/s/AKfycbws_Zf0ykk8dxeqe1oKjwkvyJLBBMkWReLSwvXvYWsZmnWK16XOLp5utpEJRMMdGWcXLQ/exec"
+    };
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
